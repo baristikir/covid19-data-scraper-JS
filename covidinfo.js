@@ -12,4 +12,10 @@ puppeteer.launch({
         const confirmedCases = await page.$eval('.confirmed span.val', element => element.innerHTML);
         console.log('Confirmed Total Cases::', confirmedCases);
     })
+
+    page.waitForSelector('.deaths')
+    .then(async function() {
+        const deathCases = await page.$eval('.deaths span.val', element => element.innerHTML);
+        console.log('Confirmed Death Cases::', deathCases);
+    })
 })
